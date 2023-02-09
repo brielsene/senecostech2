@@ -64,6 +64,7 @@
 <div class ="product-description">DESCRICAO: ${lista.descricao }</div>
 <div class ="product-value">VALOR: ${lista.valor } R$</div>
 <a href="/senecostech/controller?acao=MostraProdutos&id=${lista.id }">Editar</a>
+<a href="/senecostech/controller?acao=FormRemocao&id=${lista.id }">Remover</a>
 </ul>
 </c:forEach>
 

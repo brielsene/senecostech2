@@ -67,6 +67,18 @@ public class ProdutoDAO {
 		}
 	}
 	
+	public void removeProdutoPelod(Integer id)throws SQLException{
+		sql = "DELETE FROM PRODUTO WHERE ID = ?";
+		try(PreparedStatement stm = conn.prepareStatement(sql)){
+			stm.setInt(1, id);
+			stm.execute();
+			int linhasAlteradas = stm.getUpdateCount();
+			if(linhasAlteradas != 0) {
+				System.out.println("Produto com id: "+id+", Removido com sucesso");
+			}
+		}
+	}
+	
 	
 
 }
