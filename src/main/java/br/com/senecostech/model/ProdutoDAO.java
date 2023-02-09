@@ -79,6 +79,22 @@ public class ProdutoDAO {
 		}
 	}
 	
+	public void adicionaNovoProduto(Produto produto)throws SQLException {
+		sql = "INSERT INTO PRODUTO (NOME, DESCRICAO, VALOR)VALUES(?, ?, ?)";
+		try(PreparedStatement stm = conn.prepareStatement(sql)){
+			stm.setString(1, produto.getNome());
+			stm.setString(2, produto.getDescricao());
+			stm.setBigDecimal(3, produto.getValor());
+			stm.execute();
+			int linhasAlteradas = stm.getUpdateCount();
+			if(linhasAlteradas != 0) {
+				System.out.println(produto.getNome()+", Adicionado com sucesso");
+				
+			}
+			
+		}
+	}
+	
 	
 
 }

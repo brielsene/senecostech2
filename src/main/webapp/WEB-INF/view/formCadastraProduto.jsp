@@ -45,13 +45,12 @@
     </style>
   </head>
   <body>
-    <h1>Editar Produto</h1>
-    <form action="/senecostech/controller?acao=EditaProduto" method="post">
-      <input type="text" name="nome" value="${produto.nome }" >
-      <input type="text" name = "descricao"value="${produto.descricao }">
-      <input type="number" name="valor"value="${produto.valor }">
-      <input type="hidden" name="id"value="${produto.id }">
-      <input type="submit"  value="Editar">
+    <h1>Cadastro de Produto</h1>
+    <form action="/senecostech/controller?acao=CadastraProduto" method="post">
+      Nome do Produto <input type="text" name="nome"/>
+      Descrição <input type="text" name = "descricao"/>
+      Valor <input type="number" name="valor"/>
+      <input type="submit"  value="Cadastrar">
     </form>
   </body>
 </html>
