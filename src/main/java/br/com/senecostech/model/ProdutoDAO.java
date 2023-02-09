@@ -1,5 +1,6 @@
 package br.com.senecostech.model;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,6 +34,37 @@ public class ProdutoDAO {
 			
 		}
 		return listaDeProdutos;
+	}
+	
+	public Produto listaProdutoPeloId (Integer id) throws SQLException {
+		sql = "SELECT NOME, DESCRICAO, VALOR FROM PRODUTO WHERE ID = ?";
+		Produto produto = null;
+		try(PreparedStatement stm = conn.prepareStatement(sql)){
+			stm.setInt(1, id);
+			stm.execute();
+			try(ResultSet rs = stm.getResultSet()){
+				while(rs.next()) {
+					 produto = new Produto(rs.getString(1), rs.getString(2), rs.getBigDecimal(3));
+				}
+			}
+		}return produto;
+	}
+	
+	public void editaProdutoPeloId(Produto produto)throws SQLException {
+		sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ?, VALOR = ? WHERE ID = ?";
+		try(PreparedStatement stm = conn.prepareStatement(sql)){
+			stm.setString(1,produto.getNome() );
+			stm.setString(2, produto.getDescricao());
+			stm.setBigDecimal(3, produto.getValor());
+			stm.setInt(4, produto.getId());
+			stm.execute();
+			
+			int i = stm.getUpdateCount();
+			if(i == 1) {
+				System.out.println("Edição alterada com sucesso");
+			}
+			
+		}
 	}
 	
 	

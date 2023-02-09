@@ -1,8 +1,6 @@
 package br.com.senecostech.acao;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,23 +9,23 @@ import br.com.senecostech.model.ConnectionFactory;
 import br.com.senecostech.model.Produto;
 import br.com.senecostech.model.ProdutoDAO;
 
-public class ListaProdutos implements Acao {
+public class MostraProdutos implements Acao {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
-		ProdutoDAO produtoDAO;
+		Integer id = Integer.valueOf(request.getParameter("id"));
+		System.out.println(id);
 		try {
-
-			produtoDAO = new ProdutoDAO(new ConnectionFactory().getConnection());
-			List<Produto> listaDeProduto = produtoDAO.listaProdutos();
-//			listaDeProduto.forEach(System.out::println);
-			request.setAttribute("listaProdutos", listaDeProduto);
+			ProdutoDAO produtoDAO = new ProdutoDAO(new ConnectionFactory().getConnection());
+			Produto produto = produtoDAO.listaProdutoPeloId(id);
+			produto.setId(id);
+			System.out.println(produto);
+			request.setAttribute("produto", produto);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return "forward:listaProdutos.jsp";
+		return "forward:formEditaProduto.jsp";
 	}
 
 }

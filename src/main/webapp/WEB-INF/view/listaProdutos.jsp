@@ -7,19 +7,67 @@
 <meta charset="ISO-8859-1">
 <title>SENECOSTECH</title>
 </head>
+
+<style>
+  ul {
+    list-style: none;
+    margin: 0;
+     padding: 75px;
+    background-color: #20B2AA;
+   
+    border: 1px solid black;
+    margin-bottom: 10px;
+  }
+
+  .product-id {
+    font-weight: bold;
+  }
+
+  .product-name {
+    font-size: 1.2em;
+  }
+
+  .product-description {
+    margin-top: 10px;
+  }
+
+  .product-value {
+  text-shadow: 2px 2px black;
+    float: right;
+    font-weight: bold;
+    color: white;
+    
+    
+  }
+  
+  h2{
+  	text-align: center;
+  }
+  
+  .edit-button{
+  padding: 15px;
+  }
+  
+  
+</style>
 <body>
 
-Lista de produtos: 
+
+<h2>Lista de produtos: </h2>
+
 <br><br><br>
 
 <c:forEach items="${listaProdutos }" var="lista">
 <ul>
-ID DO PRODUTO: ${lista.id }
-NOME DO PRODUTO: ${lista.nome }
-DESCRICAO: ${lista.descricao }
-VALOR: ${lista.valor }
+<div class ="product-id"> ID DO PRODUTO: ${lista.id }</div>
+<div class ="product-name">NOME DO PRODUTO: ${lista.nome }</div>
+<div class ="product-description">DESCRICAO: ${lista.descricao }</div>
+<div class ="product-value">VALOR: ${lista.valor } R$</div>
+<a href="/senecostech/controller?acao=MostraProdutos&id=${lista.id }">Editar</a>
 </ul>
 </c:forEach>
+
+</form>
 
 
 
