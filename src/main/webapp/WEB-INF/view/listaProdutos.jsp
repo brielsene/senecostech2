@@ -47,6 +47,9 @@
   .edit-button{
   padding: 15px;
   }
+  h3{
+  text-align: left;
+  }
   
   
 </style>
@@ -54,6 +57,7 @@
 
 
 <h2>Lista de produtos: </h2>
+<h3>Olá: ${usuarioLogado.login }</h3>
 
 <br><br><br>
 
