@@ -55,6 +55,8 @@
 </style>
 <body>
 
+<a href="/senecostech/controller?acao=Logout">Logout</a>
+
 
 <h2>Lista de produtos: </h2>
 <h3>Olá: ${usuarioLogado.login }</h3>
