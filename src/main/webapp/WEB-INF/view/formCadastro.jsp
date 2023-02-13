@@ -46,14 +46,14 @@
     </style>
   </head>
   <body>
-    <h1>Login Administração</h1>
-    <form action="/senecostech/controller?acao=Login" method="post">
+    <h1>Cadastro</h1>
+    <form action="/senecostech/controller?acao=CadastroUsuario" method="post">
      	Login: <input type="text" name="login"/>
       	Senha: <input type="password" name = "senha"/>
+      	Senha: <input type="password" name = "senha2"/>
+      	Endereco: <input type="text" name="endereco"/>
       
       <input type="submit"  value="Login">
-      <br><br><br>
-      Caso não tenha login, <a href="/senecostech/controller?acao=FormCadastroUsuario">Cadastre-se</a>
     </form>
   </body>
 </html>

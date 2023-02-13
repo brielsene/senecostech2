@@ -38,5 +38,20 @@ public class UsuarioDAO {
 		return null;
 
 	}
+	
+	public void cadastraUsuario(Usuario usuario)throws SQLException {
+		sql = "INSERT INTO USUARIO (LOGIN, SENHA, ENDERECO)VALUES(?, ?, ?)";
+		try(PreparedStatement stm = conn.prepareStatement(sql)){
+			stm.setString(1, usuario.getLogin());
+			stm.setString(2, usuario.getSenha());
+			stm.setString(3, usuario.getEndereco());
+			stm.execute();
+			int linhasAdicionadas = stm.getUpdateCount();
+			if(linhasAdicionadas == 1) {
+				System.out.println("Usuario adicionado com sucesso");
+			}
+			
+		}
+	}
 
 }

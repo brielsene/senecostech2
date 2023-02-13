@@ -30,7 +30,8 @@ public class ControllerServlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		
 		boolean usuarioNaoEstaLogado = sessao.getAttribute("usuarioLogado")==null;
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("FormLogin")||paramAcao.equals("Login"));
+		boolean ehUmaAcaoProtegida = !(paramAcao.equals("FormLogin")||paramAcao.equals("Login")||paramAcao.equals("FormCadastroUsuario")||
+				paramAcao.equals("CadastroUsuario"));
 		
 		if(usuarioNaoEstaLogado & ehUmaAcaoProtegida) {
 			response.sendRedirect("controller?acao=FormLogin");

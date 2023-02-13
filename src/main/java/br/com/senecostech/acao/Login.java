@@ -16,10 +16,8 @@ public class Login implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			UsuarioDAO usuarioDAO = new UsuarioDAO(new ConnectionFactory().getConnection());
-			System.out.println(request.getParameter("login")+" - "+ request.getParameter("senha"));
 			Usuario usuario = new Usuario(request.getParameter("login"), request.getParameter("senha"));
 			Usuario verificiaLogin = usuarioDAO.verificiaLogin(usuario);
-			System.out.println(verificiaLogin);
 			HttpSession sessao = request.getSession();
 			if(verificiaLogin !=null) {
 				sessao.setAttribute("usuarioLogado", verificiaLogin);
