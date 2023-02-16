@@ -18,7 +18,6 @@ public class CadastroUsuario implements Acao {
 		String senha = request.getParameter("senha");
 		String senha2 = request.getParameter("senha2");
 		String endereco = request.getParameter("endereco");
-		System.out.println(login +" - "+senha+" - "+senha2+" - "+endereco);
 		if(senha.equals(senha2)) {
 			
 			UsuarioDAO usuarioDAO;

@@ -46,7 +46,7 @@
   </head>
   <body>
     <h1>Editar Produto</h1>
-    <form action="/senecostech/controller?acao=EditaProduto" method="post">
+    <form action="/senecostech2/controller?acao=EditaProduto" method="post">
       <input type="text" name="nome" value="${produto.nome }" >
       <input type="text" name = "descricao"value="${produto.descricao }">
       <input type="number" name="valor"value="${produto.valor }">

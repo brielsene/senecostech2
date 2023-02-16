@@ -47,7 +47,7 @@
   </head>
   <body>
     <h1>Login Administração</h1>
-    <form action="/senecostech/controller?acao=Login" method="post">
+    <form action="/senecostech2/controller?acao=Login" method="post">
      	Login: <input type="text" name="login"/>
       	Senha: <input type="password" name = "senha"/>
       

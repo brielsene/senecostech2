@@ -9,23 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.senecostech.model.ConnectionFactory;
 import br.com.senecostech.model.Produto;
-import br.com.senecostech.model.ProdutoDAO;
+import br.com.senecostech.dao.ProdutoDAO;
+import br.com.senecostech.model.Testinho;
+import br.com.senecostech.util.JPAUtil;
 
 public class ListaProdutos implements Acao {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
-		ProdutoDAO produtoDAO;
-		try {
-
-			produtoDAO = new ProdutoDAO(new ConnectionFactory().getConnection());
-			List<Produto> listaDeProduto = produtoDAO.listaProdutos();
-//			listaDeProduto.forEach(System.out::println);
-			request.setAttribute("listaProdutos", listaDeProduto);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		ProdutoDAO produtoDAO = new ProdutoDAO(JPAUtil.getEntityManager());
+		List<Produto> listaDeProduto = produtoDAO.getProdutos();
+		
+		request.setAttribute("listaProdutos", listaDeProduto);
 
 		return "forward:listaProdutos.jsp";
 	}

@@ -47,7 +47,7 @@
   </head>
   <body>
     <h1>Cadastro</h1>
-    <form action="/senecostech/controller?acao=CadastroUsuario" method="post">
+    <form action="/senecostech2/controller?acao=CadastroUsuario" method="post">
      	Login: <input type="text" name="login"/>
       	Senha: <input type="password" name = "senha"/>
       	Senha: <input type="password" name = "senha2"/>

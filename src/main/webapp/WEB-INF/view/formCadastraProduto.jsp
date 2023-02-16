@@ -46,7 +46,7 @@
   </head>
   <body>
     <h1>Cadastro de Produto</h1>
-    <form action="/senecostech/controller?acao=CadastraProduto" method="post">
+    <form action="/senecostech2/controller?acao=CadastraProduto" method="post">
       Nome do Produto <input type="text" name="nome"/>
       Descrição <input type="text" name = "descricao"/>
       Valor <input type="number" name="valor"/>

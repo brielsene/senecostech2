@@ -45,7 +45,7 @@ input[type="submit"] {
 </head>
 <body>
 	<h1>Remoção de produto</h1>
-	<form action="/senecostech/controller?acao=RemoveProduto" method="post">
+	<form action="/senecostech2/controller?acao=RemoveProduto" method="post">
 		<input type="text" value="${produto.nome }" readonly/>
 		<input type="text" value="${produto.descricao }" readonly/>
 		<input type="text" value="${produto.valor }" readonly/>
